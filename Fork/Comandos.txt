@@ -1,0 +1,16 @@
+Comando de prueba:
+
+ls
+ls -la
+ls -la > archivo.txt
+wc < archivo.txt > hola.dat
+ls -la | wc
+ls -la | grep consumidor
+wc < archivo.txt | grep 32
+wc < archivo.txt | grep 34 > hola.dat
+ps -fea | grep eduardo | wc
+ps -fea | grep eduardo | wc > archivo.txt
+cat < archivo.txt | grep s
+ls -la | tr -d "o" | wc > hola.dat
+ls -la | grep parametros | tr -d "o" | wc > archivo.txt
+ls -la | grep eduardo | tr -d "o" | tr -d "e"

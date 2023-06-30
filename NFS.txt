@@ -1,0 +1,23 @@
+NFS Server
+apt update
+apt -y install nfs-kernel-server
+systemctl status nfs-server
+mkdir /exports
+mkdir /exports/backups
+
+nano /etc/exports
+/exports/backups IPCLIENTE(rw,sync,no_subtree_check)
+ 
+exportfs -ar
+exportfs -v
+ufw allow from IPCLIENTE to any port nfs
+ufw status
+
+NFS Client
+apt -y install nfs-common
+mkdir /mnt/backups
+df -h
+mount IPSERVER:/exports/backups /mnt/backups
+
+nano /etc/fstab
+IPSERVER:/exports/backups /mnt/backups nfs auto,nofail,noatime,nolock,tcp,actimeo=1800,_netdev 0 0
